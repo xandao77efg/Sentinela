@@ -1,12 +1,14 @@
 {
-  "name": "hospital-system",
+  "name": "sentinela",
   "version": "1.0.0",
-  "main": "api/index.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node backend/server.js"
+    "start": "node index.js"
   },
   "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^5.1.0"
-  }
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mysql": "^2.18.1"
+  },
+  "type": "commonjs"
 }
