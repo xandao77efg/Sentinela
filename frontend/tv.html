@@ -1,198 +1,367 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-   
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <style>
-         * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-    body {
-        background-color: #0a0e88;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        overflow: hidden;
-    }
+        body {
+            background: linear-gradient(
+                135deg,
+                #087f45 0%,
+                #38a852 45%,
+                #f5c542 72%,
+                #ff7417 100%
+            );
 
-    .tv-container {
-        display: flex;
-        width: 95vw;
-        height: 90vh;
-        gap: 18px;
-    }
+            display: flex;
+            justify-content: center;
+            align-items: center;
 
-    .left-panel{
-        display: flex;
-        flex-direction: column;
-        width: 35%;
-        gap: 18px;
-    }
-     
-    .right-panel{
-        display: flex;
-        flex-direction: column;
-        width: 65%;
-        gap: 18px;
-    }
+            height: 100vh;
+            overflow: hidden;
+        }
 
-    .box{
-        background-color: #0a0e88;
-        border: 6px solid #f6f6f6;
-        border-radius: 15px;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        text-align: center;
-        box-shadow: 0 4px 15px rgba(0,0,0,0,3);
-    }
+        .tv-container {
+            display: flex;
+            width: 95vw;
+            height: 90vh;
+            gap: 18px;
+        }
 
-    .box-title {
-        color: #ffff;
-        font-size: 2.2vw;
-        font-weight: bold;
-        text-transform: uppercase;
-        text-shadow: 1px 1px 2px;
-        margin-bottom: 12px;
-    }
+        .left-panel {
+            display: flex;
+            flex-direction: column;
+            width: 35%;
+            gap: 18px;
+        }
 
-    .local-box{ flex: 1; }
-    .local-number {
-        color: rgb(254, 0, 0);
-        font-size: 9vw;
-        font-weight: bold;
-        line-height: 1;
-    }
+        .right-panel {
+            display: flex;
+            flex-direction: column;
+            width: 65%;
+            gap: 18px;
+        }
 
-    .local-type{
-        color: dimgray;
-        font-size: 1.8vw;
-        font-weight: bold;
-        margin-top: 6px;
-    }
+        .box {
+            background: rgba(255, 255, 255, 0.96);
+            border: none;
+            border-radius: 20px;
 
-    .history-box {
-        flex: 1;
-        justify-content: flex-start;
-        align-items: flex-start;
-    }
+            padding: 20px;
 
-    .history-box .box-title { font-size: 1.8vw; align-self: center; }
-    #history-list {
-        list-style: none;
-        width: 100%;
-        color: rgb(5, 0, 0);
-        font-size: 1.5vw;
-        font-weight: bold;
-        text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
 
-    
-    }
+            text-align: center;
 
-    #history-list li {
-        margin-bottom: 8px;
-        border-bottom: 1px solid rgba(0,0,0,0.1);
-        padding-bottom: 5px;
-    }
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.18);
+        }
 
-    .patient-box { flex: 3; }
-    .patient-name {
-        color: #d12c2c;
-        font-size: 6.5vw;
-        font-weight: bold;
-        line-height: 1.2;
-        word-break: break-word;
-    }
+        .box-title {
+            color: #087f45;
+            font-size: 2.2vw;
+            font-weight: bold;
+            text-transform: uppercase;
 
-    .logo-box{ flex: 1; }
-    .logo-text {
-        color: #00d5ff;
-        font-size: 3.5vw;
-        font-weight: bold;
-        text-transform: uppercase;
-    }
+            margin-bottom: 12px;
+        }
 
-    @keyframes flash {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.3; }
-    }
-    .flash {animation: flash 0.5 ease 3; }
+        .local-box {
+            flex: 1;
+        }
+
+        .local-number {
+            color: #e83b32;
+            font-size: 9vw;
+            font-weight: bold;
+            line-height: 1;
+        }
+
+        .local-type {
+            color: #555;
+            font-size: 1.8vw;
+            font-weight: bold;
+            margin-top: 6px;
+        }
+
+        .history-box {
+            flex: 1;
+            justify-content: flex-start;
+            align-items: flex-start;
+        }
+
+        .history-box .box-title {
+            font-size: 1.8vw;
+            align-self: center;
+            color: #087f45;
+        }
+
+        #history-list {
+            list-style: none;
+            width: 100%;
+
+            color: #333;
+            font-size: 1.5vw;
+            font-weight: bold;
+
+            text-align: left;
+        }
+
+        #history-list li {
+            margin-bottom: 8px;
+
+            border-bottom: 1px solid rgba(8, 127, 69, 0.18);
+
+            padding-bottom: 5px;
+        }
+
+        .patient-box {
+            flex: 3;
+        }
+
+        .patient-name {
+            color: #e83b32;
+            font-size: 6.5vw;
+            font-weight: bold;
+
+            line-height: 1.2;
+
+            word-break: break-word;
+        }
+
+        .logo-box {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.96);
+        }
+
+        .logo-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .logo-image {
+            width: 90px;
+            height: 90px;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            color: #087f45;
+            font-size: 3.5vw;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        @keyframes flash {
+            0%, 100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.45;
+            }
+        }
+
+        .flash {
+            animation: flash 0.5s ease 3;
+        }
+
+        /* Detalhe colorido no topo das caixas */
+        .local-box::before,
+        .history-box::before,
+        .patient-box::before,
+        .logo-box::before {
+            content: "";
+            position: absolute;
+        }
+
+        /* Ajuste para não deixar o detalhe interferir no layout */
+        .box {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .box::after {
+            content: "";
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 6px;
+
+            background: linear-gradient(
+                90deg,
+                #087f45,
+                #58b947,
+                #f5c542,
+                #ff7417
+            );
+        }
+
+        @media (max-width: 900px) {
+            .tv-container {
+                width: 96vw;
+                height: 92vh;
+            }
+
+            .logo-image {
+                width: 65px;
+                height: 65px;
+            }
+        }
     </style>
 
- <title>Midia indoor - tv</title>
-   
+    <title>Midia Indoor - TV</title>
 </head>
+
 <body>
+
     <div class="tv-container">
-         <div class="left-panel">
-         <div class="box local-box">
-         <div class="box-title" id="local-tipo">GUICHE</div>
-         <div class="local-number" id="local-number">--</div>
+
+        <div class="left-panel">
+
+            <div class="box local-box">
+                <div class="box-title" id="local-tipo">GUICHE</div>
+
+                <div class="local-number" id="local-number">
+                    --
+                </div>
+            </div>
+
+            <div class="box history-box">
+
+                <div class="box-title">
+                    ULTIMAS CHAMADAS
+                </div>
+
+                <ul id="history-list"></ul>
+
+            </div>
+
+        </div>
+
+        <div class="right-panel">
+
+            <div class="box patient-box">
+
+                <div class="box-title">
+                    PACIENTE
+                </div>
+
+                <div class="patient-name" id="patient-name">
+                    AGUARDANDO...
+                </div>
+
+            </div>
+
+            <div class="box logo-box">
+
+                <div class="logo-content">
+
+                    <img
+                        src="logo.removida.png"
+                        alt="Logo HospitalFrutas"
+                        class="logo-image"
+                    >
+
+                    <div class="logo-text">
+                        HospitalFrutas
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
     </div>
 
-    <div class="box history-box">
-        <div class="box-title">ULTIMAS CHAMADAS</div>
-        <ul id="history-list"></ul>
-    </div>
+    <script>
+        let ultimoId = null;
 
-    </div>
-    <div class="right-panel">
-        <div class="box patient-box">
-        <div class="box-title">PACIENT</div>
-        <div class="patient-name" id="patient-name"> AGUARDANDO... </div>
-    </div>
-    <div class="box logo-box">
-        <div class="logo-text">sistema hospitalar</div>
-    </div>
-  </div>
-</div>
-<script>
-    let ultimoId = null;
-    // Função criada para buscar a chamada
-    // atual e o histórico da TV em tempo real.
-    function atualizar() {
-        fetch("/tv/chamada")
-        .then(r =>r.json())
-        .then(data => {
-const chamada = data.chamada;
-const historico = data.historico || [];
+        function atualizar() {
 
-if (chamada) {
-    document.getElementById("local-tipo").innerText = chamada.localTipo || "GUICHÊ";
-    document.getElementById("local-numero").innerText = chamada.localNumero || "--";
-    document.getElementById("patient-name").innerText = chamada.paciente || "AGUARDANDO...";
+            fetch("/tv/chamada")
+                .then(r => r.json())
+                .then(data => {
 
-    // fLASH visual quando há chamada nova
-    if (chamada.id !== ultimoId) {
-ultimoId = chamada.id;
-const patientBox = document.querySelector(".patient-box");
-patientBox.classList.remove("flash");
-void patientBox.offsetWidth; //reflow
-patientBox.classList.add("flash");
-    }
+                    const chamada = data.chamada;
+                    const historico = data.historico || [];
 
-}
+                    if (chamada) {
 
-// Historico
-const list = document.getElementById("history-list");
-list.innerHTML = "";
-historico.slice(0, 4).forEach(h => {
-    const li = document.createElement("li");
-    const tipo = h.localTipo ? h.localTipo.substring(0.4) : "GUIC";
-    li.innerText = `${tipo}. ${h.localNumero} - ${h.paciente}`;
-    list.appendChild(li);
-});
-})
-.catch(err => console.log("Erro ao buscar chamada:", err));
-    }
-// polling a cada 2 segunda
-atualizar();
-setInterval(atualizar, 2000);
+                        document.getElementById("local-tipo").innerText =
+                            chamada.localTipo || "GUICHÊ";
 
-</script>
+                        document.getElementById("local-number").innerText =
+                            chamada.localNumero || "--";
+
+                        document.getElementById("patient-name").innerText =
+                            chamada.paciente || "AGUARDANDO...";
+
+                        if (chamada.id !== ultimoId) {
+
+                            ultimoId = chamada.id;
+
+                            const patientBox =
+                                document.querySelector(".patient-box");
+
+                            patientBox.classList.remove("flash");
+
+                            void patientBox.offsetWidth;
+
+                            patientBox.classList.add("flash");
+                        }
+                    }
+
+                    const list =
+                        document.getElementById("history-list");
+
+                    list.innerHTML = "";
+
+                    historico.slice(0, 4).forEach(h => {
+
+                        const li =
+                            document.createElement("li");
+
+                        const tipo = h.localTipo
+                            ? h.localTipo.substring(0, 4)
+                            : "GUIC";
+
+                        li.innerText =
+                            `${tipo}. ${h.localNumero} - ${h.paciente}`;
+
+                        list.appendChild(li);
+                    });
+
+                })
+                .catch(err =>
+                    console.log(
+                        "Erro ao buscar chamada:",
+                        err
+                    )
+                );
+        }
+
+        atualizar();
+
+        setInterval(atualizar, 2000);
+    </script>
 
 </body>
 </html>
