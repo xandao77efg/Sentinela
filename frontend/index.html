@@ -10,15 +10,15 @@
     <div class="logo">
         <span class="icone">🏥</span>
         <div>
-            <h1>Hospital HospitalFrutas</h1>
+            <h1>HospitaFrutas</h1>
             <p>Cuidando da vida com excelência</p>
         </div>
     </div>
 </header>
 
 <div class="container">
-  <img src="logo.png">
-  <h2>Sistema HospitalFrutas</h2>
+  <img src="logo.hospitalfrutas.png">
+  <h2>Sistema HospitaFrutas </h2>
   <input id="usuario" placeholder="Usuário">
   <input id="senha" type="password" placeholder="Senha">
   <button onclick="login()">Entrar</button>
@@ -26,7 +26,7 @@
 
 <script>
 function login() {
-  fetch("/login", {
+  fetch("http://localhost:3000/login", {
     method: "POST",
     headers: {"Content-Type": "application/json"},
     body: JSON.stringify({
